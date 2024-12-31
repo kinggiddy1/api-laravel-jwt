@@ -71,6 +71,17 @@ return [
         // ],
     ],
 
+
+    //for API
+
+    'guards' => [
+    'api' => [
+        'driver' => 'jwt',
+        'provider' => 'users',
+    ],
+    ],
+    
+
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
