@@ -49,4 +49,10 @@ class AuthController extends Controller
         Auth::guard('api')->logout();
         return response()->json(['message' => 'Successfully logged out']);
     }
+
+      // profile
+      public function profile()
+      {
+          return response()->json(auth()->user());
+      }
 }
