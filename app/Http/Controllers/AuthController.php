@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -34,6 +35,16 @@ class AuthController extends Controller
     // Login
     public function login(Request $request)
     {
+        // Validate the input
+        $credentials = Validator::make($request->all(), [
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required'
+        ]);
+
+        if ($credentials->fails()) {
+            return response()->json(['errors' => $credentials->errors()], 422);
+        }
+
         $credentials = $request->only('email', 'password');
 
         if (!$token = JWTAuth::attempt($credentials)) {
