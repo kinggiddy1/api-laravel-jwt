@@ -14,3 +14,4 @@ Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api');
 
 Route::post('profile', [AuthController::class, 'profile'])->middleware('auth:api');
+Route::get('totalusers', [UserController::class, 'getTotalUsers']);
