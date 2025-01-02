@@ -14,8 +14,7 @@ class AuthController extends Controller
      // All Users
     public function userlist()
     {
-        $users = User::all(); 
-        // $users = User::paginate(10);
+        $users = User::latest()->get(); // $users = User::paginate(10);   User::all()->latest();
         return response()->json(['users' => $users], 200);
     }
 
