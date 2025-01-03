@@ -88,6 +88,12 @@ class AuthController extends Controller
     public function show(User $id){
         return ['User' => $id];
     }
-    
+
+    //One User
+    public function delete(User $id)
+    {
+        $id ->delete();
+        return ['student' =>'The user is deleted']; 
+    }
 
 }
