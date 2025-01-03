@@ -61,7 +61,7 @@ class AuthController extends Controller
             ], 401); 
         }
 
-        return response()->json(['token' => $token]);
+        return response()->json(['token' => $token]); 
     }
 
     // Logout
@@ -82,6 +82,11 @@ class AuthController extends Controller
     {
         $totalUsers = User::count();
         return response()->json(['total-users' => $totalUsers]);
+    }
+
+    //One User
+    public function show(User $id){
+        return ['User' => $id];
     }
     
 
