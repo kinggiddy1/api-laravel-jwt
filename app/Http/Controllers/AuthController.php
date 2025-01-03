@@ -93,7 +93,7 @@ class AuthController extends Controller
     public function delete(User $id)
     {
         $id ->delete();
-        return ['student' =>'The user is deleted'];
+        return ['student' =>'The user is deleted']; 
     }
 
 }
