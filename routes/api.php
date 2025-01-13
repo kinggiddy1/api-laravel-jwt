@@ -22,4 +22,4 @@ Route::post('delete/{id}/', [AuthController::class, 'delete']);
 
 // PRODUCTS
 Route::get('products', [ProductController::class, 'index']);
-Route::post('store', [ProductController::class, 'store']);
+Route::post('store', [ProductController::class, 'store'])->middleware('auth:api');

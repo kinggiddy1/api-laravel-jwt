@@ -61,4 +61,12 @@ class User extends Authenticatable implements JWTSubject
             'password' => 'hashed',
         ];
     }
+
+    // Relationship
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
 }

@@ -12,4 +12,11 @@ class Product extends Model
         'description', 
         'quantity'
     ];
+
+    // Relationship
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
 }

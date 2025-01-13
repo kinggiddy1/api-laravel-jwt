@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\validator;
+use Illuminate\Support\Facades\Cache;
 
 class ProductController extends Controller
 {
@@ -22,20 +23,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $fields = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'quantity' => 'required|integer',
         ]);
 
-        $products = Product::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'quantity' => $request->quantity,
-        ]);
-   
-
-        return response()->json(['products' => $products], 201);
+       // $product = Product::create($fields);
+        $product = $request->user()->products()->create($fields);
+        return response()->json(['product' => $product], 201);
     
     }
 
