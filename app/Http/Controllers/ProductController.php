@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all(); // Corrected with uppercase 'P'
+        $products = Product::all(); 
         return response()->json(['products' => $products], 200);
     }
 
@@ -28,7 +28,11 @@ class ProductController extends Controller
             'quantity' => 'required|integer',
         ]);
 
-        $products = product::create($request);
+        $products = Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'quantity' => $request->quantity,
+        ]);
    
 
         return response()->json(['products' => $products], 201);
