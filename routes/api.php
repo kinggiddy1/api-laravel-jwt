@@ -20,4 +20,4 @@ Route::post('userlist/{id}/', [AuthController::class, 'show']);
 Route::post('delete/{id}/', [AuthController::class, 'delete']);
 
 // PRODUCTS
-Route::post('products', [ProductController::class, 'products']);
+Route::get('products', [ProductController::class, 'products']);
