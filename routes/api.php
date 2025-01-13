@@ -18,3 +18,6 @@ Route::get('totalusers', [AuthController::class, 'getTotalUsers'])->middleware('
 Route::post('userlist', [AuthController::class, 'userlist']);
 Route::post('userlist/{id}/', [AuthController::class, 'show']);
 Route::post('delete/{id}/', [AuthController::class, 'delete']);
+
+// PRODUCTS
+Route::post('products', [ProductController::class, 'products']);
