@@ -31,6 +31,7 @@ class ProductController extends Controller
 
        // $product = Product::create($fields);
         $product = $request->user()->products()->create($fields);
+        
         return response()->json(['product' => $product], 201);
     
     }
